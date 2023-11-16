@@ -11,20 +11,31 @@ Base = declarative_base()
 
 # Se crea la una entidad llamada Autor, que hereda
 # de Base
-class Autor(Base):
-    __tablename__ = 'autor' # El nombre de la entidad en sqlite
+class Ciudad (Base):
+    __tablename__ = 'Ciudad' # El nombre de la entidad en sqlite
     # Se definen los atributos
     id = Column(Integer, primary_key=True) # este atributo es entero y
                                         # se lo considera como llave
                                         # primaria
-    nombre = Column(String) # atributo de tipo String
-    apellido = Column(String)
-    nacionalidad = Column(String)
-    edad = Column(Integer)
-
+    nombreCiudad = Column(String) # atributo de tipo String
+    poblacion = Column(Integer)
+    pais = Column(String)
     def __str__(self):
-        return "%s %s %s %s" % (self.nombre, self.apellido, self.nacionalidad,
-        self.edad)
+        return "%s %s %s " % (self.nombreCiudad, self.poblacion, self.pais)
+    
+
+class Estadio (Base):
+    __tablename__ = 'Estadio' # El nombre de la entidad en sqlite
+    # Se definen los atributos
+    id = Column(Integer, primary_key=True) # este atributo es entero y
+                                        # se lo considera como llave
+                                        # primaria
+    nombreEstadio = Column(String) # atributo de tipo String
+    direccionEstadio = Column(String)
+    capacidad = Column(Integer)
+    def __str__(self):
+        return "%s %s %s" % (self.nombreEstadio, self.direccionEstadio, self.capacidad)
+  
 
 # Sentencia que permite crear o migrar las clases en Python al
 # gestor de base de datos, expresado en el engine.

@@ -1,7 +1,8 @@
 from sqlalchemy.orm import sessionmaker
 # se importa la clase(s) del
 # archivo crear_entidades
-from crear_entidades import Autor
+from crear_entidades import Ciudad
+from crear_entidades import Estadio
 # se importa el engine
 from base_datos import engine
 
@@ -15,20 +16,21 @@ Session = sessionmaker(bind=engine) # Se usa el engine
 session = Session()
 
 # se crea un objetos de tipo Autor
-autor1 = Autor(nombre="José", apellido="Armijos", nacionalidad="ecuatoriana",
-        edad=40)
-autor2 = Autor(nombre="Sara", apellido="Benitez", nacionalidad="colombiana",
-        edad=20)
-autor3 = Autor(nombre="Pedro", apellido="Díaz", nacionalidad="peruana",
-        edad=35)
-autor4 = Autor(nombre="Mónica", apellido="Carrión", nacionalidad="ecuatoriana",
-        edad=25)
+Ciudad1= Ciudad(nombreCiudad="Piñas",pais="Ecuador",poblacion=9876345)
+Ciudad2= Ciudad(nombreCiudad="España",pais="Europa",poblacion=3456789)
+Ciudad3= Ciudad(nombreCiudad="Loja",pais="Ecuador",poblacion=9876523)
+Estadio1= Estadio(nombreEstadio="Banco de Pichincha",direccionEstadio="Guayaquil",capacidad=80000)
+Estadio2= Estadio(nombreEstadio="Olimpico Atahualpa",direccionEstadio="Quito",capacidad=90000)
+Estadio3= Estadio(nombreEstadio="Olimpico Ibarra",direccionEstadio="Ecuador",capacidad=800000)
+
 # se agrega los objetos de tipo Autor a la sesión
 # a la espera de un commit
-session.add(autor1)
-session.add(autor2)
-session.add(autor3)
-session.add(autor4)
+session.add(Ciudad1)
+session.add(Ciudad2)
+session.add(Ciudad3)
+session.add(Estadio1)
+session.add(Estadio2)
+session.add(Estadio3)
 
 # se necesita confirmar los cambios que existan en la sessió
 # se usar commit
